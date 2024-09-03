@@ -11,7 +11,8 @@ def compute_hash(u: E, u_r: E) -> Fq:
 
     result = str(u[0]) + str(u_r[0]) # Concatenate the two x values
     hexdigest = result.encode('utf-8') # Compute the hash
-    return Fq('0x'+sha256(hexdigest).hexdigest()) # Return the result as an element of Fq
+    return Fq('0x' + sha256(hexdigest).hexdigest()) # Return the result as an element of Fq
+
 
 def save_proof(u: E, proof: Tuple[E, Fq, Fq]):
     """
@@ -33,6 +34,7 @@ def save_proof(u: E, proof: Tuple[E, Fq, Fq]):
             'alpha_z': str(alpha_z),
             'beta_z': str(beta_z)
         }, f, indent = 4) 
+
 
 def read_proof() -> Tuple[E, E, Fq, Fq]:
     """
